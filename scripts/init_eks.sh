@@ -26,7 +26,7 @@ build_and_install_igb_uio ()
 		return
 	fi
 
-	sudo yum install -y git python3 gcc make kernel-devel-$(uname -r)
+	sudo dnf install -y git python3 gcc make kernel6.12-devel-$(uname -r) kernel6.12-headers-$(uname -r)
 	sudo pip3 install meson pyelftools ninja
 
 	mkdir $BUILD_DIR && cd $BUILD_DIR
@@ -90,7 +90,7 @@ configure_dpdk_interrupt_mode_support ()
 	# download and build and install the vfio-pci driver with wc support
 	# for ENAv2
 	mkdir $BUILD_DIR && cd $BUILD_DIR
-	git clone https://github.com/amzn/amzn-drivers.git
+	git clone https://github.com/roikeman/amzn-drivers.git
 	cd amzn-drivers/userspace/dpdk/enav2-vfio-patch
 	./get-vfio-with-wc.sh
 
