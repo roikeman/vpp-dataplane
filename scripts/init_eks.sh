@@ -92,7 +92,7 @@ configure_dpdk_interrupt_mode_support ()
 	mkdir $BUILD_DIR && cd $BUILD_DIR
 	git clone https://github.com/roikeman/amzn-drivers.git
 	cd amzn-drivers/userspace/dpdk/enav2-vfio-patch
-	./get-vfio-with-wc.sh
+	# ./get-vfio-with-wc.sh # !!!!!!!!!!!!!
 
 	# load the driver
 	modprobe vfio-pci
